@@ -1,0 +1,141 @@
+{
+    "page": 1,
+    "recent_article_list": [
+        {
+            "id": 1,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 2,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 3,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 4,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 5,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 6,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        }
+    ],
+    "carousel_article": [
+        {
+            "id": 1,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 2,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 3,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 4,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 5,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        },
+        {
+            "id": 6,
+            "type": "Technology",
+            "title": "Step Into Tomorrow",
+            "sub_title": "Exploring Spatial Computing’s Impact On Industries And The Metaverse!",
+            "publish_date": "26 Feb 2024",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png",
+            "content_type": "video",
+            "is_liked": false,
+            "is_viewed": false
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 1
+}

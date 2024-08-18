@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Alkye</string>
+    <string name="welcome_message">In a world of finite resources, the true measure of innovation lies not in its complexity, but in its capacity to simplify and empower the human mind.</string>
+    <string name="signup">Sign-up</string>
+    <string name="signin">Sign-in</string>
+    <string name="terms">Terms</string>
+</resources>

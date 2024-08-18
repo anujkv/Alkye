@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Dimensions-->
+    <dimen name="image_logo_default_size">43dp</dimen>
+    <dimen name="image_quote_size">30dp</dimen>
+
+
+    <!--Text-->
+    <dimen name="textSize16">16sp</dimen>
+    <dimen name="textSize58">58sp</dimen>
+</resources>
