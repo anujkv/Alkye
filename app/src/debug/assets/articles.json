@@ -136,6 +136,38 @@
             "is_viewed": false
         }
     ],
+    "social_connect": [
+        {
+            "id": 1,
+            "sub_title": "The Ultimate Guide To Simplifying Your Routine With Generative AI Automation!",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png"
+        },
+        {
+            "id": 2,
+            "sub_title": "The Ultimate Guide To Simplifying Your Routine With Generative AI Automation!",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png"
+        },
+        {
+            "id": 3,
+            "sub_title": "The Ultimate Guide To Simplifying Your Routine With Generative AI Automation!",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png"
+        },
+        {
+            "id": 4,
+            "sub_title": "The Ultimate Guide To Simplifying Your Routine With Generative AI Automation!",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png"
+        },
+        {
+            "id": 5,
+            "sub_title": "The Ultimate Guide To Simplifying Your Routine With Generative AI Automation!",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png"
+        },
+        {
+            "id": 6,
+            "sub_title": "The Ultimate Guide To Simplifying Your Routine With Generative AI Automation!",
+            "article_img": "https://optim.tildacdn.net/tild3565-3132-4363-a130-326262623934/-/format/webp/25_years_car_side_on.png"
+        }
+    ],
     "total_pages": 1,
     "total_results": 1
 }

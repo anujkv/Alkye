@@ -1,12 +1,11 @@
 package com.net.alkye.data.mappers
 
-import com.net.alkye.data.remote.ArticlesResponse
 import com.net.alkye.data.remote.CarouselArticle
 import com.net.alkye.data.remote.RecentArticle
 
 /*Mapped Database to Local*/
-fun RecentArticle.toRecentArticlesEntity(): com.net.alkye.data.local.RecentArticle {
-    return com.net.alkye.data.local.RecentArticle(
+fun RecentArticle.toRecentArticlesEntity(): com.net.alkye.data.local.articles.RecentArticle {
+    return com.net.alkye.data.local.articles.RecentArticle(
         article_img = article_img,
         content_type = content_type,
         id = id,
@@ -19,8 +18,8 @@ fun RecentArticle.toRecentArticlesEntity(): com.net.alkye.data.local.RecentArtic
     )
 }
 
-fun CarouselArticle.toCarouselArticlesEntity(): com.net.alkye.data.local.CarouselArticle{
-    return com.net.alkye.data.local.CarouselArticle(
+fun CarouselArticle.toCarouselArticlesEntity(): com.net.alkye.data.local.articles.CarouselArticle {
+    return com.net.alkye.data.local.articles.CarouselArticle(
         article_img = article_img,
         content_type = content_type,
         id = id,
@@ -44,7 +43,7 @@ fun CarouselArticle.toCarouselArticlesEntity(): com.net.alkye.data.local.Carouse
 }*/
 
 /*Mapped Local to Database*/
-fun com.net.alkye.data.local.RecentArticle.toRecentArticles(): RecentArticle {
+fun com.net.alkye.data.local.articles.RecentArticle.toRecentArticles(): RecentArticle {
     return RecentArticle(
         article_img = article_img,
         content_type = content_type,
@@ -58,7 +57,7 @@ fun com.net.alkye.data.local.RecentArticle.toRecentArticles(): RecentArticle {
     )
 }
 
-fun com.net.alkye.data.local.CarouselArticle.toCarouselArticles(): CarouselArticle{
+fun com.net.alkye.data.local.articles.CarouselArticle.toCarouselArticles(): CarouselArticle{
     return CarouselArticle(
         article_img = article_img,
         content_type = content_type,

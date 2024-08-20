@@ -1,6 +1,6 @@
 package com.net.alkye.di
 
-import com.net.alkye.data.local.RecentArticle
+import com.net.alkye.data.local.articles.RecentArticle
 import com.net.alkye.utils.Resource
 import kotlinx.coroutines.flow.Flow
 

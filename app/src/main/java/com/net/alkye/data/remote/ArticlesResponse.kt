@@ -1,9 +1,14 @@
 package com.net.alkye.data.remote
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+
 data class ArticlesResponse(
     val carousel_article: List<CarouselArticle>,
     val page: Int,
     val recent_article_list: List<RecentArticle>,
+    val social_connect: List<SocialConnect>,
     val total_pages: Int,
     val total_results: Int
 )
@@ -30,4 +35,12 @@ data class RecentArticle(
     val sub_title: String,
     val title: String,
     val type: String
+)
+
+@Entity(tableName = "social_connect")
+data class SocialConnect(
+    @PrimaryKey
+    val id: Int,
+    val sub_title: String,
+    val article_img: String
 )

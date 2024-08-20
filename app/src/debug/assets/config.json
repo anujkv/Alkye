@@ -1,0 +1,29 @@
+{
+    "menu_list": [
+        {
+            "menu_id": 1,
+            "menu_name": "Read Articles",
+        "article_img": "R.drawable.book_open"
+        },
+        {
+            "menu_id": 2,
+            "menu_name": "Bookmark",
+            "article_img": "R.drawable.bookmark"
+        },
+        {
+            "menu_id": 3,
+            "menu_name": "Tv",
+            "article_img": "R.drawable.tv_icon"
+        },
+        {
+            "menu_id": 4,
+            "menu_name": "Notification",
+            "article_img": "R.drawable.bell"
+        },
+        {
+            "menu_id": 5,
+            "menu_name": "Profile",
+            "article_img": "R.drawable.user_icon"
+        }
+    ]
+}

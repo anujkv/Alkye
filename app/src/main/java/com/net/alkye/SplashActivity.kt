@@ -11,8 +11,13 @@ class SplashActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            callAppConfigFile()
             AppNavigation()
         }
+    }
+
+    private fun callAppConfigFile() {
+
     }
 }
 

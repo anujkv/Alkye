@@ -1,5 +1,6 @@
 package com.net.alkye.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,6 +28,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -109,7 +111,8 @@ fun WelcomeScreen(navController: NavController) {
                     Text(
                         text = stringResource(id = R.string.signup),
                         color = Color.White,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 18.sp
                     )
                 }
 
@@ -118,8 +121,9 @@ fun WelcomeScreen(navController: NavController) {
                         redirectToHomeScreen(navController)
                     },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color.Black
+                        containerColor = Color.White
                     ),
+                    border = BorderStroke(1.dp, Color.Black),
                     shape = RoundedCornerShape(dimensionResource(id = R.dimen.button_corner_radius)),
                     modifier = Modifier
                         .width(dimensionResource(id = R.dimen.button_width))
@@ -127,8 +131,9 @@ fun WelcomeScreen(navController: NavController) {
                 ) {
                     Text(
                         text = stringResource(id = R.string.signin),
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold
+                        color = Color.Black,
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 18.sp
                     )
                 }
 
@@ -136,6 +141,7 @@ fun WelcomeScreen(navController: NavController) {
                     text = stringResource(id = R.string.terms),
                     fontSize = textSize.value.sp,
                     color = Color.Gray,
+                    textDecoration = TextDecoration.Underline,
                     modifier = Modifier.padding(top = 20.dp, bottom = 10.dp)
                 )
             }
