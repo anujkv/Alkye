@@ -15,11 +15,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -35,14 +39,19 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -66,6 +75,8 @@ import com.net.alkye.data.local.loadConfigFromAssets
 import com.net.alkye.ui.theme.AlkyeTheme
 import com.net.alkye.utils.ClassName
 import com.net.alkye.utils.ImageUtils
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -155,7 +166,9 @@ fun HomeScreen(navController: NavController) {
             val articles: ArticlesEntity = loadArticlesFromAssets(context = LocalContext.current)
 
             Box {
-                SetCarouselArticles(articles.carousel_article, navController)
+//                SetCarouselArticles(articles.carousel_article, navController)
+                CarouselWithIndicators(articles.carousel_article, navController)
+
             }
 
             Box(
@@ -211,7 +224,7 @@ fun CustomBottomNavBar(
             menuList.forEachIndexed { index, icon ->
                 Box(modifier = Modifier
                     .padding(8.dp)
-                    .clickable {onItemSelected(index)}
+                    .clickable { onItemSelected(index) }
                     .weight(1.0f)
                     .align(Alignment.CenterVertically),
                     Alignment.Center){
@@ -243,36 +256,6 @@ fun CustomBottomNavBar(
                         else colorResource(id = R.color.black)
                     )
                 }
-                /*IconButton(
-                    onClick = { onItemSelected(index) },
-                    modifier = Modifier
-                        .weight(1f)
-                        .background(
-                            color = if (selectedItem == index) Color.Black else Color.Transparent,
-                            shape = CircleShape
-                        )
-                ) {
-                    var id = R.drawable.book_open
-                    when (icon.article_img) {
-                        "R.drawable.book_open" -> {
-                            id = R.drawable.book_open
-                        }
-
-                        "R.drawable.bookmark" -> id = R.drawable.bookmark
-                        "R.drawable.tv_icon" -> id = R.drawable.tv_icon
-                        "R.drawable.bell" -> id = R.drawable.bell
-                        "R.drawable.user_icon" -> id = R.drawable.user_icon
-                        else -> {}
-                    }
-
-                    Icon(
-
-                        painter = painterResource(id),
-                        contentDescription = null,
-                        tint = if (selectedItem == index) colorResource(id = R.color.white)
-                        else colorResource(id = R.color.black)
-                    )
-                }*/
             }
         }
     }
@@ -287,9 +270,6 @@ fun SetCarouselArticles(carouselArticle: List<CarouselArticle>, navController: N
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        /*item(carouselArticle){ carouselArticle->
-            CarouselItem(carouselArticle)
-        }*/
 
         items(carouselArticle) { article ->
             CarouselItem(article, navController)
@@ -404,6 +384,81 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
     }
 
 }
+
+@Composable
+fun CarouselWithIndicators(
+    carouselArticleList: List<CarouselArticle>,
+    navController: NavController
+) {
+    val listState = rememberLazyListState()
+    val coroutineScope = rememberCoroutineScope()
+
+    Column {
+        LazyRow(
+            state = listState,
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            itemsIndexed(carouselArticleList) { index, article ->
+                CarouselItem(article, navController)
+            }
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        LazyRow(
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp)
+        ) {
+            items(carouselArticleList.size) { index ->
+                val isSelected = listState.firstVisibleItemIndex == index
+                val modifier = Modifier
+                    .padding(horizontal = 4.dp)
+                    .then(
+                        if (listState.firstVisibleItemIndex == index) {
+                            Modifier
+                                .width(70.dp)
+                                .height(8.dp)
+                                .background(
+                                    color = colorResource(id = R.color.indicator_clr),
+                                    shape = RoundedCornerShape(20.dp)
+                                )
+                        } else {
+                            Modifier
+                                .size(8.dp)
+                                .background(
+                                    color = colorResource(id = R.color.indicator_clr),
+                                    shape = CircleShape
+                                )
+                        }
+                    )
+                Box(
+                    modifier = modifier
+                )
+            }
+        }
+    }
+
+    // Smoothly scroll to the selected item when the list state changes
+    LaunchedEffect(listState) {
+        snapshotFlow { listState.firstVisibleItemIndex }
+            .distinctUntilChanged()
+            .collect { index ->
+                coroutineScope.launch {
+                    val offset = if (index == carouselArticleList.size - 1) {
+                        listState.layoutInfo.viewportEndOffset
+                        -listState.layoutInfo.visibleItemsInfo.lastOrNull()?.size!! ?: 0
+                    } else {
+                        0
+                    }
+                    listState.animateScrollToItem(index = index, scrollOffset = offset)
+                }
+            }
+    }
+}
+
 
 fun navigateToArticleDetailScreen(articleId: Int, navController: NavController) {
     navController.navigate("${ClassName.ARTICLE_DETAIL_SCREEN}/$articleId") {
