@@ -209,7 +209,41 @@ fun CustomBottomNavBar(
             verticalAlignment = Alignment.CenterVertically
         ) {
             menuList.forEachIndexed { index, icon ->
-                IconButton(
+                Box(modifier = Modifier
+                    .padding(8.dp)
+                    .clickable {onItemSelected(index)}
+                    .weight(1.0f)
+                    .align(Alignment.CenterVertically),
+                    Alignment.Center){
+                    Image(
+                        painter = painterResource(
+                            id = if (selectedItem == index) {R.drawable.bg_circle}
+                            else {R.drawable.bg_unselected_circle}
+                        ),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                    var id = R.drawable.book_open
+                    when (icon.article_img) {
+                        "R.drawable.book_open" -> {
+                            id = R.drawable.book_open
+                        }
+
+                        "R.drawable.bookmark" -> id = R.drawable.bookmark
+                        "R.drawable.tv_icon" -> id = R.drawable.tv_icon
+                        "R.drawable.bell" -> id = R.drawable.bell
+                        "R.drawable.user_icon" -> id = R.drawable.user_icon
+                        else -> {}
+                    }
+                    Icon(
+
+                        painter = painterResource(id),
+                        contentDescription = null,
+                        tint = if (selectedItem == index) colorResource(id = R.color.white)
+                        else colorResource(id = R.color.black)
+                    )
+                }
+                /*IconButton(
                     onClick = { onItemSelected(index) },
                     modifier = Modifier
                         .weight(1f)
@@ -238,7 +272,7 @@ fun CustomBottomNavBar(
                         tint = if (selectedItem == index) colorResource(id = R.color.white)
                         else colorResource(id = R.color.black)
                     )
-                }
+                }*/
             }
         }
     }
