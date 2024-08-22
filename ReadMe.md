@@ -1,6 +1,5 @@
 Alkye Android Assignmet:
-https://docs.google.com/document/d/1jK4rKNir3AwGL7LWSYWPY8YfLW_x26gWiQOKBonlULs/edit
-https://www.figma.com/proto/ooluIS6tR2lISESq4mZOrb/Untitled?node-id=1-2&t=MbrXKNQ1xMcqNkev-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1
+
 
 Below are the Task details:-
 Task -
