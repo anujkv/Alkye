@@ -18,12 +18,13 @@ data class ArticlesEntity(
 data class CarouselArticle(
     @PrimaryKey
     val id: Int,
-    val type: String,
+    val category: String,
     val title: String,
     val sub_title: String,
     val publish_date: String,
     val article_img: String,
     val content_type: String,
+    val type: String,
     val is_liked: Boolean,
     val is_viewed: Boolean
 )
@@ -32,13 +33,14 @@ data class CarouselArticle(
 data class RecentArticle(
     @PrimaryKey
     val id: Int,
-    val type: String,
+    val category: String,
     val title: String,
     val sub_title: String,
     val publish_date: String,
     val article_img: String,
     val content_type: String,
     val is_liked: Boolean,
+    val type: String,
     val is_viewed: Boolean
 )
 

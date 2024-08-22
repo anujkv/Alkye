@@ -1,7 +1,7 @@
 package com.net.alkye.data.mappers
 
-import com.net.alkye.data.remote.CarouselArticle
-import com.net.alkye.data.remote.RecentArticle
+import com.net.alkye.data.remote.articles.CarouselArticle
+import com.net.alkye.data.remote.articles.RecentArticle
 
 /*Mapped Database to Local*/
 fun RecentArticle.toRecentArticlesEntity(): com.net.alkye.data.local.articles.RecentArticle {
@@ -14,7 +14,8 @@ fun RecentArticle.toRecentArticlesEntity(): com.net.alkye.data.local.articles.Re
         publish_date = publish_date,
         sub_title = sub_title,
         title = title,
-        type = type
+        type = type,
+        category = category
     )
 }
 
@@ -28,7 +29,8 @@ fun CarouselArticle.toCarouselArticlesEntity(): com.net.alkye.data.local.article
         publish_date = publish_date,
         sub_title = sub_title,
         title = title,
-        type = type
+        type = type,
+        category = category
     )
 }
 
@@ -53,11 +55,12 @@ fun com.net.alkye.data.local.articles.RecentArticle.toRecentArticles(): RecentAr
         publish_date = publish_date,
         sub_title = sub_title,
         title = title,
-        type = type
+        type = type,
+        category = category
     )
 }
 
-fun com.net.alkye.data.local.articles.CarouselArticle.toCarouselArticles(): CarouselArticle{
+fun com.net.alkye.data.local.articles.CarouselArticle.toCarouselArticles(): CarouselArticle {
     return CarouselArticle(
         article_img = article_img,
         content_type = content_type,
@@ -67,7 +70,8 @@ fun com.net.alkye.data.local.articles.CarouselArticle.toCarouselArticles(): Caro
         publish_date = publish_date,
         sub_title = sub_title,
         title = title,
-        type = type
+        type = type,
+        category = category
     )
 }
 

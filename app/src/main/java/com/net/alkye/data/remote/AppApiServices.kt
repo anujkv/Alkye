@@ -1,5 +1,6 @@
 package com.net.alkye.data.remote
 
+import com.net.alkye.data.remote.articles.ArticlesResponse
 import retrofit2.http.GET
 
 interface AppApiServices {

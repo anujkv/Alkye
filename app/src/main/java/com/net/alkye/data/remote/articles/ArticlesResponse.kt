@@ -1,4 +1,4 @@
-package com.net.alkye.data.remote
+package com.net.alkye.data.remote.articles
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -22,7 +22,8 @@ data class CarouselArticle(
     val publish_date: String,
     val sub_title: String,
     val title: String,
-    val type: String
+    val category: String,
+    val type: String,
 )
 
 data class RecentArticle(
@@ -34,7 +35,8 @@ data class RecentArticle(
     val publish_date: String,
     val sub_title: String,
     val title: String,
-    val type: String
+    val category: String,
+    val type: String,
 )
 
 @Entity(tableName = "social_connect")

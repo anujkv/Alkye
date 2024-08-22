@@ -37,6 +37,7 @@ import androidx.navigation.compose.rememberNavController
 import com.net.alkye.R
 import com.net.alkye.ui.theme.AlkyeTheme
 import com.net.alkye.ui.theme.scillaFontFamilys
+import com.net.alkye.ui.theme.stawfordFontFamilys
 import com.net.alkye.utils.ClassName
 
 @Composable
@@ -45,7 +46,9 @@ fun WelcomeScreen(navController: NavController) {
     Scaffold ( topBar = {},
         containerColor = colorResource(id = R.color.screen_clr)
     ) { innerPadding ->
-        Box(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPadding)) {
 
             Column(
                 modifier = Modifier
@@ -62,9 +65,12 @@ fun WelcomeScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(30.dp))
 
                 Text(
-                    text = "Welcome",
-                    fontSize = textSize.value.sp,
-                    fontWeight = FontWeight.Bold
+                    text = stringResource(id = R.string.welcome),
+                    fontWeight = FontWeight.Bold,
+                    style = TextStyle(
+                        fontSize = dimensionResource(id = R.dimen.textSize18).value.sp,
+                        fontFamily = stawfordFontFamilys,
+                    )
                 )
 
                 Spacer(modifier = Modifier.height(40.dp))
@@ -78,8 +84,9 @@ fun WelcomeScreen(navController: NavController) {
                     Text(
                         text = stringResource(id = R.string.welcome_message),
                         Modifier.padding(top = 16.dp, start = 8.dp),
+                        lineHeight = 30.sp,
                         style = TextStyle(
-                            fontSize = 16.sp,
+                            fontSize = 18.sp,
                             fontFamily = scillaFontFamilys,
                             fontStyle = FontStyle.Italic,
                         )
@@ -111,8 +118,11 @@ fun WelcomeScreen(navController: NavController) {
                     Text(
                         text = stringResource(id = R.string.signup),
                         color = Color.White,
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 18.sp
+                        style = TextStyle(
+                            fontSize = dimensionResource(id = R.dimen.textSize18).value.sp,
+                            fontFamily = stawfordFontFamilys,
+                            fontWeight = FontWeight.Normal
+                        )
                     )
                 }
 
@@ -132,15 +142,22 @@ fun WelcomeScreen(navController: NavController) {
                     Text(
                         text = stringResource(id = R.string.signin),
                         color = Color.Black,
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 18.sp
+                        style = TextStyle(
+                            fontSize = dimensionResource(id = R.dimen.textSize18).value.sp,
+                            fontFamily = stawfordFontFamilys,
+                            fontWeight = FontWeight.Normal
+                        )
                     )
                 }
 
                 Text(
                     text = stringResource(id = R.string.terms),
-                    fontSize = textSize.value.sp,
                     color = Color.Gray,
+                    style = TextStyle(
+                        fontSize = dimensionResource(id = R.dimen.textSize18).value.sp,
+                        fontFamily = stawfordFontFamilys,
+                        fontWeight = FontWeight.Normal
+                    ),
                     textDecoration = TextDecoration.Underline,
                     modifier = Modifier.padding(top = 20.dp, bottom = 10.dp)
                 )

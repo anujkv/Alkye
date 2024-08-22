@@ -3,8 +3,8 @@ package com.net.alkye.utils
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.net.alkye.data.remote.CarouselArticle
-import com.net.alkye.data.remote.RecentArticle
+import com.net.alkye.data.remote.articles.CarouselArticle
+import com.net.alkye.data.remote.articles.RecentArticle
 
 
 class Converters {

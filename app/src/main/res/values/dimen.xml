@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="button_width">300dp</dimen>
+    <dimen name="button_height">60dp</dimen>
+    <dimen name="button_corner_radius">16dp</dimen>
     <!--Dimensions-->
     <dimen name="image_logo_default_size">43dp</dimen>
     <dimen name="image_quote_size">30dp</dimen>
 
 
-    <!--Text-->
+    <!--Margin/Padding-->
+    <dimen name="textPadding100">100dp</dimen>
+    <dimen name="textPadding32">32dp</dimen>
+    <dimen name="textPadding24">24dp</dimen>
+    <dimen name="textPadding22">22dp</dimen>
+    <dimen name="textPadding20">20dp</dimen>
+    <dimen name="textPadding18">18dp</dimen>
+    <dimen name="textPadding16">16dp</dimen>
+    <dimen name="textPadding10">10dp</dimen>
+    <dimen name="textPadding8">8dp</dimen>
+    <dimen name="textPadding6">6dp</dimen>
+    <dimen name="textPadding4">4dp</dimen>
+    <dimen name="textPadding2">2dp</dimen>
+
+    <!--TextSize-->
+    <dimen name="textSize100">100sp</dimen>
+    <dimen name="textSize46">46sp</dimen>
+    <dimen name="textSize33">33sp</dimen>
+    <dimen name="textSize31">31sp</dimen>
+    <dimen name="textSize30">30sp</dimen>
+    <dimen name="textSize26">26sp</dimen>
+    <dimen name="textSize24">24sp</dimen>
+    <dimen name="textSize22">22sp</dimen>
+    <dimen name="textSize21">21sp</dimen>
+    <dimen name="textSize20">20sp</dimen>
+    <dimen name="textSize18">18sp</dimen>
     <dimen name="textSize16">16sp</dimen>
-    <dimen name="textSize58">58sp</dimen>
+    <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize12">12sp</dimen>
+    <dimen name="textSize29">29sp</dimen>
 </resources>

@@ -23,16 +23,13 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.GenericShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -50,13 +47,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
@@ -73,6 +71,7 @@ import com.net.alkye.data.local.articles.SocialConnect
 import com.net.alkye.data.local.loadArticlesFromAssets
 import com.net.alkye.data.local.loadConfigFromAssets
 import com.net.alkye.ui.theme.AlkyeTheme
+import com.net.alkye.ui.theme.stawfordFontFamilys
 import com.net.alkye.utils.ClassName
 import com.net.alkye.utils.ImageUtils
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -129,9 +128,15 @@ fun HomeScreen(navController: NavController) {
                                 .fillMaxSize()
                         ) {
                             Text(
-                                text = "Search...",
+                                text = stringResource(id = R.string.search),
                                 color = Color.Gray,
-                                modifier = Modifier.weight(1f)
+                                modifier = Modifier.weight(1f),
+                                style = TextStyle(
+                                    fontSize = dimensionResource(id = R.dimen.textSize14).value.sp,
+                                    fontFamily = stawfordFontFamilys,
+                                    fontWeight = FontWeight.Normal,
+                                    lineHeight = dimensionResource(id = R.dimen.textSize18).value.sp
+                                )
                             )
                             Icon(
                                 painter = painterResource(id = R.drawable.search_icon),
@@ -263,20 +268,6 @@ fun CustomBottomNavBar(
 }
 
 
-
-@Composable
-fun SetCarouselArticles(carouselArticle: List<CarouselArticle>, navController: NavController) {
-    LazyRow(
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-
-        items(carouselArticle) { article ->
-            CarouselItem(article, navController)
-        }
-    }
-}
-
 @Composable
 fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController) {
     Card(
@@ -285,7 +276,7 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
         },
         modifier = Modifier
             .width(280.dp)
-            .height(360.dp)
+            .height(420.dp)
             .padding(top = 16.dp, bottom = 4.dp),
         shape = RoundedCornerShape(
             topStart = 20.dp,
@@ -340,7 +331,7 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(150.dp)
+                .fillMaxHeight()
                 .background(colorResource(id = R.color.white))
                 .padding(8.dp)
         ) {
@@ -357,27 +348,44 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
                     contentDescription = "Dot Icon",
                 )
                 Text(
-                    text = carouselArticle.type,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 12.sp,
-                    color = Color.Black,
+                    text = carouselArticle.category,
+                    style = TextStyle(
+                        fontSize = dimensionResource(id = R.dimen.textSize12).value.sp,
+                        fontFamily = stawfordFontFamilys,
+                        fontWeight = FontWeight.Bold,
+                        lineHeight = dimensionResource(id = R.dimen.textSize18).value.sp,
+                        color = Color.Black
+                    ),
                     modifier = Modifier.padding(start = 2.dp)
                 )
             }
             Text(
                 text = buildAnnotatedString {
-                    withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                    withStyle(
+                        style = SpanStyle(
+                            fontWeight = FontWeight.Bold,
+                            fontFamily = stawfordFontFamilys)) {
                         append("${carouselArticle.title}:")
                     }
-                    append(" ${carouselArticle.sub_title}")
+                    withStyle(style = SpanStyle(fontFamily = stawfordFontFamilys,
+                        fontWeight = FontWeight.Normal)){append(" ${carouselArticle.sub_title}")}
                 },
                 color = Color.Black,
+                lineHeight = 24.sp,
                 modifier = Modifier.padding(4.dp)
             )
+            Spacer(modifier = Modifier.weight(1f))
+
             Text(
                 text = carouselArticle.publish_date,
-                color = Color.Gray,
-                modifier = Modifier.padding(start = 4.dp, end = 4.dp, bottom = 2.dp, top = 18.dp)
+                color = Color.Gray,style = TextStyle(
+                    fontSize = dimensionResource(id = R.dimen.textSize12).value.sp,
+                    fontFamily = stawfordFontFamilys,
+                    fontWeight = FontWeight.Normal,
+                    color = colorResource(id = R.color.date_clr)
+                ),
+                modifier = Modifier
+                    .padding(start = 4.dp, end = 4.dp, bottom = 16.dp)
             )
         }
 
@@ -476,9 +484,13 @@ fun SetRecentArticles(recentArticleList: List<RecentArticle>, navController: Nav
             .padding(start = 16.dp, top = 26.dp, bottom = 16.dp)
     ) {
         Text(
-            text = "Recent Article",
-            fontWeight = FontWeight.Bold,
-            fontSize = 22.sp,
+            text = stringResource(id = R.string.recent_articles),
+            style = TextStyle(
+                fontSize = dimensionResource(id = R.dimen.textSize22).value.sp,
+                fontFamily = stawfordFontFamilys,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, top = 26.dp, bottom = 16.dp)
@@ -518,10 +530,14 @@ fun SetRecentArticles(recentArticleList: List<RecentArticle>, navController: Nav
                             )
                         ) {
                             Text(
-                                text = "View all",
-                                color = colorResource(id = R.color.black),
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Bold
+                                text = stringResource(id = R.string.view_all),
+                                style = TextStyle(
+                                    fontSize = dimensionResource(id = R.dimen.textSize12).value.sp,
+                                    fontFamily = stawfordFontFamilys,
+                                    fontWeight = FontWeight.Bold,
+                                    lineHeight = dimensionResource(id = R.dimen.textSize18).value.sp,
+                                    color = Color.Black
+                                )
                             )
                         }
                     }
@@ -597,18 +613,27 @@ fun RecentArticleItem(article: RecentArticle, navController: NavController) {
                     )
                     Text(
                         text = article.type,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 12.sp,
-                        color = Color.Black,
-                        modifier = Modifier.padding(start = 2.dp)
+                        modifier = Modifier.padding(start = 2.dp),
+                        style = TextStyle(
+                            fontSize = dimensionResource(id = R.dimen.textSize12).value.sp,
+                            fontFamily = stawfordFontFamilys,
+                            fontWeight = FontWeight.Bold,
+                            lineHeight = dimensionResource(id = R.dimen.textSize24).value.sp,
+                            color = Color.Black
+                        )
+
                     )
                 }
 
                 Text(
                     text = "${article.title}:",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp,
-                    color = Color.Black,
+                    style = TextStyle(
+                        fontSize = dimensionResource(id = R.dimen.textSize16).value.sp,
+                        fontFamily = stawfordFontFamilys,
+                        fontWeight = FontWeight.Bold,
+                        lineHeight = dimensionResource(id = R.dimen.textSize18).value.sp,
+                        color = Color.Black
+                    ),
                     modifier = Modifier.padding(
                         start = 8.dp, end = 8.dp,
                         top = 4.dp, bottom = 2.dp
@@ -616,9 +641,13 @@ fun RecentArticleItem(article: RecentArticle, navController: NavController) {
                 )
                 Text(
                     text = article.sub_title,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 16.sp,
-                    color = Color.Black,
+                    style = TextStyle(
+                        fontSize = dimensionResource(id = R.dimen.textSize16).value.sp,
+                        fontFamily = stawfordFontFamilys,
+                        fontWeight = FontWeight.Normal,
+                        lineHeight = dimensionResource(id = R.dimen.textSize18).value.sp,
+                        color = Color.Black
+                    ),
                     modifier = Modifier.padding(
                         start = 8.dp, end = 8.dp,
                         top = 2.dp, bottom = 20.dp
@@ -627,9 +656,13 @@ fun RecentArticleItem(article: RecentArticle, navController: NavController) {
 
                 Text(
                     text = article.publish_date,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 12.sp,
-                    color = colorResource(id = R.color.date_clr),
+                    style = TextStyle(
+                        fontSize = dimensionResource(id = R.dimen.textSize12).value.sp,
+                        fontFamily = stawfordFontFamilys,
+                        fontWeight = FontWeight.Normal,
+                        lineHeight = dimensionResource(id = R.dimen.textSize18).value.sp,
+                        color = colorResource(id = R.color.date_clr)
+                    ),
                     modifier = Modifier
                         .padding(start = 8.dp, end = 8.dp, bottom = 4.dp, top = 110.dp)
                         .align(Alignment.Start)
@@ -653,10 +686,14 @@ fun SetSocialConnect(articles: List<SocialConnect>, navController: NavController
     ) {
 
         Text(
-            text = "Social Connect",
-            fontWeight = FontWeight.Bold,
-            color = colorResource(id = R.color.white),
-            fontSize = 22.sp,
+            text = stringResource(id = R.string.social_connect),
+            style = TextStyle(
+                fontSize = dimensionResource(id = R.dimen.textSize22).value.sp,
+                fontFamily = stawfordFontFamilys,
+                fontWeight = FontWeight.Bold,
+                lineHeight = dimensionResource(id = R.dimen.textSize29).value.sp,
+                color = Color.White
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, top = 26.dp, bottom = 4.dp)
@@ -664,10 +701,14 @@ fun SetSocialConnect(articles: List<SocialConnect>, navController: NavController
         )
 
         Text(
-            text = "Stay update with my latest post\non your favorite platforms",
-            fontWeight = FontWeight.Bold,
-            fontSize = 16.sp,
-            color = colorResource(id = R.color.white),
+            text = stringResource(id = R.string.social_connect_msg),
+            style = TextStyle(
+                fontSize = dimensionResource(id = R.dimen.textSize16).value.sp,
+                fontFamily = stawfordFontFamilys,
+                fontWeight = FontWeight.Bold,
+                lineHeight = dimensionResource(id = R.dimen.textSize21).value.sp,
+                color = Color.White
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp)
@@ -717,9 +758,7 @@ fun SocialItem(article: SocialConnect, navController: NavController) {
                     .padding(16.dp)
                     .align(Alignment.TopStart)
             )
-
         }
-
 
         Column(
             modifier = Modifier
@@ -730,8 +769,14 @@ fun SocialItem(article: SocialConnect, navController: NavController) {
         ) {
             Text(
                 text = article.sub_title,
-                color = Color.Black,
-                modifier = Modifier.padding(4.dp)
+                modifier = Modifier.padding(4.dp),
+                style = TextStyle(
+                    fontSize = dimensionResource(id = R.dimen.textSize16).value.sp,
+                    fontFamily = stawfordFontFamilys,
+                    fontWeight = FontWeight.Normal,
+                    lineHeight = dimensionResource(id = R.dimen.textSize24).value.sp,
+                    color = Color.Black
+                )
             )
         }
 
