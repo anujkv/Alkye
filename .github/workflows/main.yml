@@ -15,18 +15,30 @@ on:
 
 #A work run is made up of one or more jobs that can  run sequentially or in parallel
 jobs:
-  #this job contains a single job called 'build'
-  build:
+  #this job contains a single job called 'build/lint'
+  lint:
     #the type of runner that the job will run on
     runs-on: ubuntu-latest
 
     #steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Checkout the code
       #checkout repository under $GITHUB_WORKSPACE, so job can access it
-      - uses: actions/checkout@v2
-      #runs a single command using the runner shell
-      - name: Run a one-line script
-        run: echo Hello, World!
+        uses: actions/checkout@v2
+
+      #This is a Gradle task that runs the Android Lint tool on the code for the debug build
+      #variant. Android Lint is a static code analysis tool that checks your Android project
+      #for potential issues, such as code errors, performance problems, security vulnerabilities,
+      #and best practices
+      - name: Run Lint
+        run: ./gradlew lintDebug
+
+      #upload the test report
+      - name: Upload html test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: index.html
+          path: app/build/reports/lint-results-debug.html
 
       #runs multiple commands using the runner shell
       - name: Run a multi-line script
