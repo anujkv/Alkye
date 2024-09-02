@@ -26,6 +26,10 @@ jobs:
       #checkout repository under $GITHUB_WORKSPACE, so job can access it
         uses: actions/checkout@v2
 
+      #add gradlew permission
+      - name: Set execute permission on gradlew
+        run: chmod +x ./gradlew
+
       #This is a Gradle task that runs the Android Lint tool on the code for the debug build
       #variant. Android Lint is a static code analysis tool that checks your Android project
       #for potential issues, such as code errors, performance problems, security vulnerabilities,
@@ -39,12 +43,3 @@ jobs:
         with:
           name: index.html
           path: app/build/reports/lint-results-debug.html
-
-      #runs multiple commands using the runner shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test and deploy the project.
-
-    
-      
