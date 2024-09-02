@@ -1,0 +1,38 @@
+#This is a basic workflow for build and deploying with the master branch now, but we can add multiple steps for other
+#branches as well as.
+
+#start with actions.
+name: Build & Deploy
+#control when the action will run.
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+#allow you to run this workflow manually from the actions tab
+  workflow_dispatch:
+
+#A work run is made up of one or more jobs that can  run sequentially or in parallel
+jobs:
+  #this job contains a single job called 'build'
+  build:
+    #the type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    #steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      #checkout repository under $GITHUB_WORKSPACE, so job can access it
+      - uses: actions/checkout@v2
+      #runs a single command using the runner shell
+      - name: Run a one-line script
+        run: echo Hello, World!
+
+      #runs multiple commands using the runner shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test and deploy the project.
+
+    
+      
