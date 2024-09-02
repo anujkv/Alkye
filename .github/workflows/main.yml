@@ -40,6 +40,11 @@ jobs:
           name: index.html
           path: app/build/reports/lint-results-debug.html
 
+      #runs multiple commands using the runner shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test and deploy the project.
 
     
       
