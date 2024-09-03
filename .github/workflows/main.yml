@@ -36,8 +36,8 @@ jobs:
       - name: Set execute permission on gradlew
         run: chmod +x ./gradlew
 
-      # - name: Clean Project
-      #   run: ./gradlew clean
+      - name: Clean Project
+        run: ./gradlew clean
 
       #This is a Gradle task that runs the Android Lint tool on the code for the debug build
       #variant. Android Lint is a static code analysis tool that checks your Android project
@@ -68,6 +68,12 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+                java-version: '17'
+                distribution: 'temurin'
 
       - name: Set execute permission on gradlew
         run: chmod +x ./gradlew
