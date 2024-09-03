@@ -53,5 +53,22 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.4.0
         with:
-          name: index.html
+          name: lint.html
           path: app/build/reports/lint-results-debug.html
+
+  unit-test:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Upload test result
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: unit_test_reports.html
+          path: app/build/reports/tests/testDebugUnitTest/
+
