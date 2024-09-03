@@ -56,12 +56,21 @@ jobs:
           name: lint.html
           path: app/build/reports/lint-results-debug.html
 
+      # Optional: Clean up temporary files to save space
+      - name: Clean up temp files
+        run: |
+          ./gradlew cleanBuildCache
+          ./gradlew clean
+
   unit-test:
     needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
+
+      - name: Set execute permission on gradlew
+        run: chmod +x ./gradlew
 
       - name: Run tests
         run: ./gradlew test
@@ -71,4 +80,10 @@ jobs:
         with:
           name: unit_test_reports.html
           path: app/build/reports/tests/testDebugUnitTest/
+
+      # Optional: Clean up temp files after running tests
+      - name: Clean up temp files
+        run: |
+          ./gradlew cleanBuildCache
+          ./gradlew clean    
 
