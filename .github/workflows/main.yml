@@ -57,10 +57,10 @@ jobs:
           path: app/build/reports/lint-results-debug.html
 
       # Optional: Clean up temporary files to save space
-      - name: Clean up temp files
-        run: |
-          ./gradlew cleanBuildCache
-          ./gradlew clean
+      # - name: Clean up temp files
+      #   run: |
+      #     ./gradlew cleanBuildCache
+      #     ./gradlew clean
 
   unit-test:
     needs: [lint]
@@ -82,8 +82,8 @@ jobs:
           path: app/build/reports/tests/testDebugUnitTest/
 
       # Optional: Clean up temp files after running tests
-      - name: Clean up temp files
-        run: |
-          ./gradlew cleanBuildCache
-          ./gradlew clean    
+      # - name: Clean up temp files
+      #   run: |
+      #     ./gradlew cleanBuildCache
+      #     ./gradlew clean    
 
