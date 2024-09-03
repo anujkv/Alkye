@@ -78,6 +78,9 @@ jobs:
       - name: Set execute permission on gradlew
         run: chmod +x ./gradlew
 
+      - name: Clean Project
+        run: ./gradlew clean
+
       - name: Run tests
         run: ./gradlew test
 
@@ -87,9 +90,35 @@ jobs:
           name: unit_test_reports.html
           path: app/build/reports/tests/testDebugUnitTest/
 
-      # Optional: Clean up temp files after running tests
-      # - name: Clean up temp files
-      #   run: |
-      #     ./gradlew cleanBuildCache
-      #     ./gradlew clean    
+  instrumentation-test:
+    needs: [unit-test]
+    runs-on: macos-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v3
+        with:
+              java-version: '17'
+              distribution: 'temurin'
+
+
+      - name: Set execute permission on gradlew
+        run: chmod +x ./gradlew
+
+      - name: Clean Project
+        run: ./gradlew clear
+
+      - name: Run expresso tests
+        uses: reactivecircus/anroid-emulator-runner@v2
+        with:
+          api-level: 34
+          script: ./gradlew connectedCheck
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: instrumentation_test_report
+          path: app/build/reports/androidTests/connected/
 
