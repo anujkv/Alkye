@@ -113,20 +113,20 @@ jobs:
         with:
           api-level: 34
           target: default
-          arch: arm64-v8a
-          profile: pixel_3
+          # arch: arm64-v8a
+          # profile: pixel_3
           emulator-options: "-no-window -no-audio -verbose -accel off"
           disable-animations: true
           boot-timeout: 1200
           script: ./gradlew connectedAndroidTest
 
-      - name: Check Emulator Devices
-        run: adb devices
+      # - name: Check Emulator Devices
+      #   run: adb devices
 
-      - name: Wait for Emulator to Boot
-        run: |
-          adb wait-for-device shell getprop init.svc.bootanim | grep stopped
-          timeout-minutes: 10  # Wait up to 10 minutes for the emulator to boot
+      # - name: Wait for Emulator to Boot
+      #   run: |
+      #     adb wait-for-device shell getprop init.svc.bootanim | grep stopped
+      #     timeout-minutes: 10  # Wait up to 10 minutes for the emulator to boot
   
       - name: Run instrumentation tests
         run: ./gradlew connectedAndroidTest
