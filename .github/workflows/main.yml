@@ -117,6 +117,7 @@ jobs:
           profile: pixel_3
           emulator-options: "-no-window -no-audio -verbose"
           disable-animations: true
+          script: ./gradlew connectedAndroidTest
 
       - name: Run instrumentation tests
         run: ./gradlew connectedAndroidTest
