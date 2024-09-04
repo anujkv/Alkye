@@ -115,6 +115,11 @@ jobs:
         with:
           api-level: 34
           script: ./gradlew connectedCheck
+          target: default
+          arch: x86_64
+          profile: Nexus 6
+          emulator-options: "-no-window -no-audio"
+          disable-animations: true
 
       - name: Upload test report
         uses: actions/upload-artifact@v4.4.0
