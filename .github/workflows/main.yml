@@ -113,7 +113,7 @@ jobs:
         with:
           api-level: 34
           target: default
-          # arch: arm64-v8a
+          arch: arm64-v8a
           # profile: pixel_3
           emulator-options: "-no-window -no-audio -verbose -accel off"
           disable-animations: true
