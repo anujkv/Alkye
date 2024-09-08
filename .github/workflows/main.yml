@@ -29,35 +29,35 @@ jobs:
       - name: Run Tests only for empty check other jobs so we beypass this
         run: echo Run lint
 
-#      - name: Set up JDK 17
-#        uses: actions/setup-java@v3
-#        with:
-#                java-version: '17'
-#                distribution: 'temurin'
-#
-#      #add gradlew permission
-#      - name: Set execute permission on gradlew
-#        run: chmod +x ./gradlew
-#
-#      - name: Clean Project
-#        run: ./gradlew clean
-#
-#      #This is a Gradle task that runs the Android Lint tool on the code for the debug build
-#      #variant. Android Lint is a static code analysis tool that checks your Android project
-#      #for potential issues, such as code errors, performance problems, security vulnerabilities,
-#      #and best practices
-#      - name: Build with Lint
-#        run: ./gradlew lintDebug
-#
-#      - name: Assemble Debug
-#        run: ./gradlew assembleDebug
-#
-#      #upload the test report
-#      - name: Upload a Build Artifact
-#        uses: actions/upload-artifact@v4.4.0
-#        with:
-#          name: lint.html
-#          path: app/build/reports/lint-results-debug.html
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+                java-version: '17'
+                distribution: 'temurin'
+
+      #add gradlew permission
+      - name: Set execute permission on gradlew
+        run: chmod +x ./gradlew
+
+      - name: Clean Project
+        run: ./gradlew clean
+
+      #This is a Gradle task that runs the Android Lint tool on the code for the debug build
+      #variant. Android Lint is a static code analysis tool that checks your Android project
+      #for potential issues, such as code errors, performance problems, security vulnerabilities,
+      #and best practices
+      - name: Build with Lint
+        run: ./gradlew lintDebug
+
+      - name: Assemble Debug
+        run: ./gradlew assembleDebug
+
+      #upload the test report
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: lint.html
+          path: app/build/reports/lint-results-debug.html
 
       # Optional: Clean up temporary files to save space
       # - name: Clean up temp files
@@ -75,26 +75,26 @@ jobs:
       - name: Run Unit Tests
         run: echo Run unit-tests
 
-#      - name: Set up JDK 17
-#        uses: actions/setup-java@v3
-#        with:
-#                java-version: '17'
-#                distribution: 'temurin'
-#
-#      - name: Set execute permission on gradlew
-#        run: chmod +x ./gradlew
-#
-#      - name: Clean Project
-#        run: ./gradlew clean
-#
-#      - name: Run tests
-#        run: ./gradlew test
-#
-#      - name: Upload test result
-#        uses: actions/upload-artifact@v4.4.0
-#        with:
-#          name: unit_test_reports.html
-#          path: app/build/reports/tests/testDebugUnitTest/
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+                java-version: '17'
+                distribution: 'temurin'
+
+      - name: Set execute permission on gradlew
+        run: chmod +x ./gradlew
+
+      - name: Clean Project
+        run: ./gradlew clean
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Upload test result
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: unit_test_reports.html
+          path: app/build/reports/tests/testDebugUnitTest/
 
   instrumentation-test:
     needs: [unit-test]
