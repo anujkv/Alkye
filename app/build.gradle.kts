@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.sonarqube)
     id("com.google.devtools.ksp")
 //    id("com.google.dagger.hilt.android")
 }
