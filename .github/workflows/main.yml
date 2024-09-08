@@ -160,6 +160,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Set execute permission on gradlew
+        run: chmod +x ./gradlew
+
+      - name: Clean Project
+        run: ./gradlew clean
+
       - name: SonarCloud Scan
         run: ./gradlew app:sonarqube -Dsonar.login={{ secrets.SONAR_TOKEN }}
         env:
