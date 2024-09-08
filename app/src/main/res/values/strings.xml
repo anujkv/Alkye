@@ -15,4 +15,13 @@
     <string name="view_all">View all</string>
     <string name="social_connect">Social Connect</string>
     <string name="social_connect_msg">Stay update with my latest post\\non your favorite platforms</string>
+    <string name="logo_icon">Logo Icon</string>
+    <string name="save_icon">Save Icon</string>
+    <string name="back_button_icon">BackButton Icon</string>
+    <string name="video_icon">Video icon</string>
+    <string name="insta_icon">Insta Icon</string>
+    <string name="favourate_not_selected_icon">Favourate Not Selected Icon</string>
+    <string name="article_image">Article Image</string>
+    <string name="social_connect_description">Social Connect Description</string>
+    <string name="carousel_article_img_description">Carousel Article Images Description</string>
 </resources>

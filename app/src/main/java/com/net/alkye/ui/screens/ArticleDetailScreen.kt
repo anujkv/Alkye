@@ -100,7 +100,7 @@ fun ArticleDetailScreen(articleId: Int, navController: NavController) {
                                 )) {
                             Icon(
                                 painter = painterResource(id = R.drawable.arrow_back),
-                                contentDescription = "Logo Icon",
+                                contentDescription = stringResource(id =R.string.back_button_icon),
                                 tint = Color.White,
                                 modifier = Modifier
                                     .size(24.dp)
@@ -118,7 +118,7 @@ fun ArticleDetailScreen(articleId: Int, navController: NavController) {
                         IconButton(onClick = { /*TODO*/ }) {
                             Icon(
                                 painter = painterResource(id = R.drawable.logo),
-                                contentDescription = "Logo Icon",
+                                contentDescription = stringResource(id =R.string.logo_icon),
                                 modifier = Modifier
                                     .background(colorResource(id = R.color.screen_clr))
                             )
@@ -297,7 +297,7 @@ fun ArticleDetailScreen(articleId: Int, navController: NavController) {
                             painter = ImageUtils.imageDefaultFutureCarFromDrawable(
                                 imageId = R.drawable.save_icon
                             ),
-                            contentDescription = "Logo Icon",
+                            contentDescription = stringResource(id =R.string.save_icon),
                             modifier = Modifier
                                 .align(Alignment.TopStart)
                                 .padding(start = 16.dp, top = 16.dp)

@@ -204,6 +204,92 @@ fun CustomBottomNavBar(
     selectedItem: Int,
     onItemSelected: (Int) -> Unit
 ) {
+    val menuList = loadConfigFromAssets(context = LocalContext.current).menu_list
+
+    Surface(
+        modifier = Modifier
+                .fillMaxWidth()
+            .height(100.dp)
+            .padding(
+                start = 16.dp,
+                end = 16.dp,
+                bottom = 40.dp
+            )
+            .clip(RoundedCornerShape(32.dp)),
+        color = colorResource(id = R.color.white),
+        contentColor = colorResource(id = R.color.white)
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .padding(dimensionResource(id = R.dimen.textPadding8))
+                .fillMaxHeight()
+        ) {
+            menuList.forEachIndexed { index, icon ->
+                Box(modifier = Modifier
+                    .clickable { onItemSelected(index) }
+                    .weight(1.0f)
+                    .align(Alignment.CenterVertically),
+                    Alignment.Center
+                ) {
+                    Image(
+                        painter = painterResource(
+                            id = getBackgroundCircle(selectedItem == index)
+                        ),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .fillMaxSize()
+                    )
+
+                    val iconId = getIconDrawable(icon.article_img)
+
+                    Icon(
+                        painter = painterResource(id = iconId),
+                        contentDescription = null,
+                        tint = getIconTint(selectedItem == index)
+                    )
+                }
+            }
+        }
+    }
+}
+
+
+fun getBackgroundCircle(isSelected: Boolean): Int {
+    return if (isSelected) {
+        R.drawable.bg_circle
+    } else {
+        R.drawable.bg_unselected_circle
+    }
+}
+
+@Composable
+fun getIconTint(isSelected: Boolean): Color {
+    return if (isSelected) {
+        colorResource(id = R.color.white)
+    } else {
+        colorResource(id = R.color.black)
+    }
+}
+
+fun getIconDrawable(iconName: String): Int {
+    return when (iconName) {
+        "R.drawable.book_open" -> R.drawable.book_open
+        "R.drawable.bookmark" -> R.drawable.bookmark
+        "R.drawable.tv_icon" -> R.drawable.tv_icon
+        "R.drawable.bell" -> R.drawable.bell
+        "R.drawable.user_icon" -> R.drawable.user_icon
+        else -> R.drawable.book_open
+    }
+}
+
+/*@Composable
+fun CustomBottomNavBar(
+    navController: NavController,
+    selectedItem: Int,
+    onItemSelected: (Int) -> Unit
+) {
 
     val menuList = loadConfigFromAssets(context = LocalContext.current).menu_list
 
@@ -265,7 +351,7 @@ fun CustomBottomNavBar(
         }
     }
 
-}
+}*/
 
 
 @Composable
@@ -300,14 +386,14 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
                     scale(Scale.FILL)
                     transformations(CoilTransformation.RoundedCornersTransformation(10.dp.toPx()))
                 },*/
-                contentDescription = "Article Image",
+                contentDescription = stringResource(id = R.string.carousel_article_img_description),
                 contentScale = ContentScale.Crop,
             )
 
             Image(
                 painter = ImageUtils
                     .imageDefaultFutureCarFromDrawable(imageId = R.drawable.video_icon),
-                contentDescription = "Video Icon",
+                contentDescription = stringResource(id = R.string.video_icon),
                 modifier = Modifier
                     .padding(16.dp)
                     .align(Alignment.TopStart)
@@ -317,7 +403,7 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
             Image(
                 painter = ImageUtils
                     .imageDefaultFutureCarFromDrawable(imageId = R.drawable.favourate_not_selected_icon),
-                contentDescription = "Video Icon",
+                contentDescription = stringResource(id = R.string.favourate_not_selected_icon),
                 modifier = Modifier
                     .padding(16.dp)
                     .align(Alignment.TopEnd)
@@ -364,11 +450,17 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
                     withStyle(
                         style = SpanStyle(
                             fontWeight = FontWeight.Bold,
-                            fontFamily = stawfordFontFamilys)) {
+                            fontFamily = stawfordFontFamilys
+                        )
+                    ) {
                         append("${carouselArticle.title}:")
                     }
-                    withStyle(style = SpanStyle(fontFamily = stawfordFontFamilys,
-                        fontWeight = FontWeight.Normal)){append(" ${carouselArticle.sub_title}")}
+                    withStyle(
+                        style = SpanStyle(
+                            fontFamily = stawfordFontFamilys,
+                            fontWeight = FontWeight.Normal
+                        )
+                    ) { append(" ${carouselArticle.sub_title}") }
                 },
                 color = Color.Black,
                 lineHeight = 24.sp,
@@ -378,7 +470,7 @@ fun CarouselItem(carouselArticle: CarouselArticle, navController: NavController)
 
             Text(
                 text = carouselArticle.publish_date,
-                color = Color.Gray,style = TextStyle(
+                color = Color.Gray, style = TextStyle(
                     fontSize = dimensionResource(id = R.dimen.textSize12).value.sp,
                     fontFamily = stawfordFontFamilys,
                     fontWeight = FontWeight.Normal,
@@ -574,7 +666,7 @@ fun RecentArticleItem(article: RecentArticle, navController: NavController) {
                     scale(Scale.FILL)
                     transformations(CoilTransformation.RoundedCornersTransformation(10.dp.toPx()))
                 },*/
-                contentDescription = "Article Image",
+                contentDescription = stringResource(id = R.string.article_image),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .width(160.dp)
@@ -595,7 +687,7 @@ fun RecentArticleItem(article: RecentArticle, navController: NavController) {
                     painter = ImageUtils.imageDefaultFutureCarFromDrawable(
                         imageId = R.drawable.video_icon
                     ),
-                    contentDescription = "Video Icon",
+                    contentDescription = stringResource(id = R.string.video_icon),
                     modifier = Modifier.padding(8.dp)
                 )
 
@@ -746,14 +838,14 @@ fun SocialItem(article: SocialConnect, navController: NavController) {
         ) {
             Image(
                 painter = ImageUtils.imageDefaultFutureCarFromDrawable(R.drawable.social_connet_img),
-                contentDescription = "Article Image",
+                contentDescription = stringResource(id = R.string.social_connect_description),
                 contentScale = ContentScale.Crop,
             )
 
             Image(
                 painter = ImageUtils
                     .imageDefaultFutureCarFromDrawable(imageId = R.drawable.insta_icon),
-                contentDescription = "Video Icon",
+                contentDescription = stringResource(id = R.string.insta_icon),
                 modifier = Modifier
                     .padding(16.dp)
                     .align(Alignment.TopStart)

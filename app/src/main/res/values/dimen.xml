@@ -10,6 +10,7 @@
 
     <!--Margin/Padding-->
     <dimen name="textPadding100">100dp</dimen>
+    <dimen name="textPadding70">70dp</dimen>
     <dimen name="textPadding32">32dp</dimen>
     <dimen name="textPadding24">24dp</dimen>
     <dimen name="textPadding22">22dp</dimen>

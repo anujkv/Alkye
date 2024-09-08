@@ -17,6 +17,7 @@ class SplashActivity : ComponentActivity() {
     }
 
     private fun callAppConfigFile() {
+        /*ToDo call app config file here*/
 
     }
 }
