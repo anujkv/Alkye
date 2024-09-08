@@ -166,6 +166,9 @@ jobs:
       - name: Clean Project
         run: ./gradlew clean
 
+      - name: Build with Gradle (with deprecation warnings)
+        run: ./gradlew build --warning-mode all
+
       - name: SonarCloud Scan
         run: ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
