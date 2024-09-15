@@ -1,4 +1,4 @@
-package com.net.alkye.ui.screens
+package com.net.alkye.view.screens
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat

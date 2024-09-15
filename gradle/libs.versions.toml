@@ -16,6 +16,7 @@ retrofit="2.9.0"
 okhttp="4.11.0"
 coil="2.4.0"
 sonar="3.5.0.2730"
+mockwebserver = "4.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,7 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
 
 #Navigation
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationVersion"}
@@ -61,6 +63,9 @@ com-squareup-retrofit = {group = "com.squareup.retrofit2", name = "retrofit", ve
 com-squareup-converter-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
 com-squareup-okhttp = {group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp"}
 com-squareup-logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp"}
+
+# In build.gradle, add the dependency for MockWebServer
+mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockwebserver" }
 
 #coil = 2.4.0
 io-coil-coil-compose = {group = "io.coil-kt", name = "coil-compose", version.ref = "coil"}

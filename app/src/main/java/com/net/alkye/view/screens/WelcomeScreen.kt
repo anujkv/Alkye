@@ -1,4 +1,4 @@
-package com.net.alkye.ui.screens
+package com.net.alkye.view.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -35,9 +35,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.net.alkye.R
-import com.net.alkye.ui.theme.AlkyeTheme
-import com.net.alkye.ui.theme.scillaFontFamilys
-import com.net.alkye.ui.theme.stawfordFontFamilys
+import com.net.alkye.view.theme.AlkyeTheme
+import com.net.alkye.view.theme.scillaFontFamilys
+import com.net.alkye.view.theme.stawfordFontFamilys
 import com.net.alkye.utils.ClassName
 
 @Composable

@@ -1,4 +1,4 @@
-package com.net.alkye.ui.theme
+package com.net.alkye.view.theme
 
 import androidx.compose.ui.graphics.Color
 

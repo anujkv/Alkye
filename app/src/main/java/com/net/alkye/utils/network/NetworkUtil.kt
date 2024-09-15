@@ -1,4 +1,4 @@
-package com.net.alkye.utils
+package com.net.alkye.utils.network
 
 import android.content.Context
 import android.net.ConnectivityManager

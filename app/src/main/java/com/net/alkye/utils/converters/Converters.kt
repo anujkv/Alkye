@@ -1,4 +1,4 @@
-package com.net.alkye.utils
+package com.net.alkye.utils.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

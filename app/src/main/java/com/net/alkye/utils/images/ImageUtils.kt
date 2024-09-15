@@ -1,4 +1,4 @@
-package com.net.alkye.utils
+package com.net.alkye.utils.images
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -7,7 +7,6 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
-import com.net.alkye.R
 
 open class ImageUtils {
 

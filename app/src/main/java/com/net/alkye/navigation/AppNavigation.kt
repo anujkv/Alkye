@@ -6,10 +6,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.net.alkye.ui.screens.ArticleDetailScreen
-import com.net.alkye.ui.screens.HomeScreen
-import com.net.alkye.ui.screens.SplashScreen
-import com.net.alkye.ui.screens.WelcomeScreen
+import com.net.alkye.view.screens.ArticleDetailScreen
+import com.net.alkye.view.screens.HomeScreen
+import com.net.alkye.view.screens.SplashScreen
+import com.net.alkye.view.screens.WelcomeScreen
 import com.net.alkye.utils.ClassName
 
 @Composable

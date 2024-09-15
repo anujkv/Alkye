@@ -1,4 +1,4 @@
-package com.net.alkye.ui.screens
+package com.net.alkye.view.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -64,9 +64,9 @@ import com.net.alkye.data.local.articles.ArticlesEntity
 import com.net.alkye.data.local.articles.RecentArticle
 import com.net.alkye.data.local.loadArticlesDetailsFromAssets
 import com.net.alkye.data.local.loadArticlesFromAssets
-import com.net.alkye.ui.theme.AlkyeTheme
-import com.net.alkye.ui.theme.stawfordFontFamilys
-import com.net.alkye.utils.ImageUtils
+import com.net.alkye.view.theme.AlkyeTheme
+import com.net.alkye.view.theme.stawfordFontFamilys
+import com.net.alkye.utils.images.ImageUtils
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

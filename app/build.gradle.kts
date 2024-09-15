@@ -94,4 +94,8 @@ dependencies {
 
     //Coil
     implementation (libs.io.coil.coil.compose)
+
+    // In build.gradle, add the dependency for MockWebServer
+    testImplementation (libs.mockwebserver)
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
 }
