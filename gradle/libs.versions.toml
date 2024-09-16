@@ -43,7 +43,7 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
 
 # Room compiler (for annotation processing with kapt)
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+#androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
 
 # Room paging library
 androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "roomVersion" }
